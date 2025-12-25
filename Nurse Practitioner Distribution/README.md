@@ -119,4 +119,4 @@ Team members: Kultum Lhabaik, Livia Mazniker, Rafaela Sewards, Lorayne Gulbrands
 
 ## License
 
-Emory University A.I Data Lab
+This Project was created using resources provided by Emory University's A.I. Data Lab
