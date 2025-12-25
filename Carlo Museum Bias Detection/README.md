@@ -105,7 +105,6 @@ Mori Schacter
 Kultum Lhabaik
 Hamza Alkadir
 
---
 ## License
 
 Unless otherwise noted in individual files, this repository is released under the **MIT License**. You are free to use, modify, and distribute the code with appropriate attribution. See `LICENSE` for full details.
