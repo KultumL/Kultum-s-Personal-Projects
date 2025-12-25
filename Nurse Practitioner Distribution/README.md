@@ -7,7 +7,7 @@ An interactive dashboard showing nurse practitioner (NP) availability across Geo
 ## Research question
 
 **How is county-level nurse practitioner density associated with racial/ethnic composition across Georgia, accounting for socioeconomic context and rurality?
-Dashboard Link: https://nursepractitionerdistributiondashboard18.onrender.com/ **
+Dashboard Link: https://nursepractitionerdistributiondashboard18.onrender.com/**
 
 ---
 
