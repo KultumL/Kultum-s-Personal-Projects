@@ -160,7 +160,7 @@ Dueable is a small full-stack system with three main pieces:
 
 ---
 
-## ⚙️ Running the Project Locally (Optional)
+## Running the Project Locally (Optional)
 
 - **Frontend (Expo / React Native Web)**  
 cd pixelate
