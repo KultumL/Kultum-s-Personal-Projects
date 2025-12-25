@@ -6,7 +6,8 @@ An interactive dashboard showing nurse practitioner (NP) availability across Geo
 
 ## Research question
 
-**How is county-level nurse practitioner density associated with racial/ethnic composition across Georgia, accounting for socioeconomic context and rurality?**
+**How is county-level nurse practitioner density associated with racial/ethnic composition across Georgia, accounting for socioeconomic context and rurality?
+Dashboard Link: https://nursepractitionerdistributiondashboard18.onrender.com/ **
 
 ---
 
@@ -55,7 +56,6 @@ An interactive dashboard showing nurse practitioner (NP) availability across Geo
 > These are descriptive associations (not causal) and can be extended with multivariate models.
 
 ---
-
 ## Tech stack
 
 - **UI:** Plotly **Dash**, Plotly Express/Graph Objects  
@@ -110,27 +110,13 @@ python app_dash.py
 
 ---
 
-## Screenshots
-
-> _Add images here for GitHub rendering, e.g.:_
->
-> `docs/screenshot-map.png`  
-> `docs/screenshot-details.png`
-
-```md
-![Map view](docs/screenshot-map.png)
-![County details](docs/screenshot-details.png)
-```
-
----
-
 ## Acknowledgments
 
-Nell Hodgson Woodruff School of Nursing — **AI Data Lab** (2025).  
+Nell Hodgson Woodruff School of Nursing 
 Team members: Kultum Lhabaik, Livia Mazniker, Rafaela Sewards, Lorayne Gulbrandsen.
 
 ---
 
 ## License
 
-Add your preferred license, e.g., MIT, or state “All rights reserved” if applicable.
+Emory University A.I Data Lab
