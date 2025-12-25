@@ -100,10 +100,10 @@ This project originated as a student collaboration with the Michael C. Carlos Mu
 
 Team:
 
-Jessie Ni
-Mori Schacter
-Kultum Lhabaik
-Hamza Alkadir
+Jessie Ni,
+Mori Schacter,
+Kultum Lhabaik,
+Hamza Alkadir,
 
 ## License
 
