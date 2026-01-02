@@ -43,6 +43,20 @@ a{
     background-color: #ac43ac;
     transition: 0.3s;
 }
+
+.text-input {
+    padding: .7rem 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+    color: #444;
+    line-height: 1.5rem;
+    font-size:1.2em ;
+    font-family: 'Lora', serif;
+
+}
 header{
     background:#EE82EE;
     height: 66px;
@@ -248,6 +262,16 @@ header .menu-toggle {
     color: #555;
 }
 
+.content .sidebar .section{
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.content .sidebar .section.search{
+    margin-top: 80px;
+}
 /*Media Queries */
 
 @media only screen and (max-width:750px){

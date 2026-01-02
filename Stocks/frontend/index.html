@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stocksmart — learn · track · grow</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+
+<body>
+  <div class="shell">
+    <!-- TOP NAV -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <i data-lucide="trending-up"></i>
+        </div>
+        <div class="brand-title">
+          <div class="name">stock<span>smart</span></div>
+          <div class="tag">learn · track · grow</div>
+        </div>
+      </div>
+
+      <div class="top-stats">
+        <div class="stat-pill">
+          <div class="stat-icon"><i data-lucide="eye"></i></div>
+          <div class="stat-meta">
+            <div class="stat-value" id="watchlistCount">0</div>
+            <div class="stat-label">WATCHING</div>
+          </div>
+        </div>
+
+        <div class="stat-pill">
+          <div class="stat-icon"><i data-lucide="bell"></i></div>
+          <div class="stat-meta">
+            <div class="stat-value" id="alertCount">0</div>
+            <div class="stat-label">ALERTS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">
+        <span class="hero-badge-ico" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+        Welcome to your investing journey
+      </div>
+
+      <h1>
+        Learn stocks<br/>
+        <span class="accent">the smart way</span>
+      </h1>
+
+      <p>Real-time prices. Simple explanations.<br/>Built for curious beginners.</p>
+
+      <div class="search-wrap">
+        <div class="icon" aria-hidden="true"><i data-lucide="search"></i></div>
+        <input
+          type="text"
+          id="stockSearch"
+          placeholder="Search any stock..."
+          autocomplete="off"
+        />
+        <button class="search-btn" onclick="searchAndViewStock()">
+          Search <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+
+      <div class="try-row">
+        <span>Try:</span>
+        <button class="chip" onclick="quickSearch('AAPL')">AAPL</button>
+        <button class="chip" onclick="quickSearch('TSLA')">TSLA</button>
+        <button class="chip" onclick="quickSearch('NVDA')">NVDA</button>
+        <button class="chip" onclick="quickSearch('GOOGL')">GOOGL</button>
+        <button class="chip" onclick="quickSearch('AMZN')">AMZN</button>
+      </div>
+    </div>
+
+    <!-- WATCHLIST -->
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">
+          <span class="k-ico"><i data-lucide="briefcase"></i></span>
+          YOUR PORTFOLIO
+        </div>
+        <div class="section-title">Watchlist</div>
+      </div>
+
+      <button class="refresh-btn" onclick="loadWatchlist()">
+        <i data-lucide="refresh-cw"></i> Refresh prices
+      </button>
+    </div>
+
+    <div id="stockGrid" class="grid">
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Loading your stocks...</p>
+      </div>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="compare">
+      <div class="section-head" style="margin-top: 28px;">
+        <div>
+          <div class="section-kicker">
+            <span class="k-ico"><i data-lucide="git-compare"></i></span>
+            COMPARE
+          </div>
+          <div class="section-title" style="font-size: 2.6rem;">Compare stocks</div>
+        </div>
+      </div>
+
+      <div class="compare-card" id="compareCard">
+        <div class="compare-grid">
+          <label class="compare-row">
+            <span class="compare-label">Stock 1</span>
+            <input id="cmp1" class="compare-input" placeholder="e.g., Apple or AAPL" />
+          </label>
+
+          <label class="compare-row">
+            <span class="compare-label">Stock 2</span>
+            <input id="cmp2" class="compare-input" placeholder="e.g., Tesla or TSLA" />
+          </label>
+
+          <label class="compare-row">
+            <span class="compare-label">Stock 3 <span class="muted">(optional)</span></span>
+            <input id="cmp3" class="compare-input" placeholder="optional (e.g., MSFT)" />
+          </label>
+        </div>
+
+        <div class="compare-actions">
+          <button class="btn btn-primary" id="cmpRun">
+            <i data-lucide="sparkles"></i> Compare
+          </button>
+
+          <button class="btn btn-ghost" id="cmpClear">
+            <i data-lucide="x"></i> Clear
+          </button>
+
+          <button class="btn btn-ghost" id="cmpSwap">
+            <i data-lucide="arrow-left-right"></i> Swap 1/2
+          </button>
+        </div>
+
+        <div class="compare-hint">
+          Pick 2–3 tickers. Tip: click a watchlist chip to fill the next empty slot.
+        </div>
+
+        <div class="compare-chips" id="compareChips"></div>
+        <div class="compare-result" id="compareResult"></div>
+      </div>
+    </div>
+
+    <!-- QUICK TIPS -->
+    <div class="tips">
+      <div class="section-head" style="margin-top: 26px;">
+        <div>
+          <div class="section-kicker">
+            <span class="k-ico"><i data-lucide="book-open"></i></span>
+            LEARN
+          </div>
+          <div class="section-title">Quick Tips</div>
+        </div>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-top">
+            <div class="tip-ico"><i data-lucide="lightbulb"></i></div>
+            <div>
+              <div class="tip-title">Don’t Panic Sell</div>
+              <div class="tip-text">
+                Markets fluctuate daily. Avoid emotional decisions based on short-term movements — focus on your long-term goals.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-top">
+            <div class="tip-ico"><i data-lucide="brain"></i></div>
+            <div>
+              <div class="tip-title">Know What You Own</div>
+              <div class="tip-text">
+                Research companies before investing. Understanding their business model is the foundation of smart investing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-top">
+            <div class="tip-ico"><i data-lucide="layers"></i></div>
+            <div>
+              <div class="tip-title">Diversify Wisely</div>
+              <div class="tip-text">
+                Spread investments across sectors and asset types. Diversification helps manage risk while capturing growth.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()" aria-label="Close">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="modalContent" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-widget">
+    <button class="chat-bubble" onclick="toggleChat()" aria-label="Open chat">
+      <i data-lucide="message-circle"></i>
+    </button>
+
+    <div class="chat-window" id="chatWindow" aria-label="Chat window">
+      <div class="chat-header">
+        <h3><i data-lucide="bot"></i> Ask about stocks</h3>
+        <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-message ai-message">
+          <div class="message-avatar"><i data-lucide="bot"></i></div>
+          <div class="message-content">
+            Ask me anything like: “What is P/E?” or “Why is this stock moving today?”
+          </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+          <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <div class="context-badge" id="contextBadge">
+          Context: <strong id="contextStock">None</strong>
+          <button class="remove-context" onclick="clearContext()" aria-label="Remove context">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="chat-input-wrapper">
+          <input class="chat-input" id="chatInput" placeholder="Type a question..." autocomplete="off" />
+          <button class="chat-send" onclick="sendMessage()" aria-label="Send">
+            <i data-lucide="send"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/state.js" defer></script>
+  <script src="assets/js/utils.js" defer></script>
+  <script src="assets/js/chat.js" defer></script>
+  <script src="assets/js/watchlist.js" defer></script>
+  <script src="assets/js/details.js" defer></script>
+  <script src="assets/js/compare.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <div id="toastContainer" class="toast-container"></div>
+</body>
+</html>
