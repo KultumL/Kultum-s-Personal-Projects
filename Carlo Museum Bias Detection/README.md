@@ -100,12 +100,10 @@ This project originated as a student collaboration with the Michael C. Carlos Mu
 
 Team:
 
-Jessie Ni
-Mori Schacter
-Kultum Lhabaik
-Hamza Alkadir
+Jessie Ni,
+Mori Schacter,
+Kultum Lhabaik,
+Hamza Alkadir,
 
---
 ## License
 
-Unless otherwise noted in individual files, this repository is released under the **MIT License**. You are free to use, modify, and distribute the code with appropriate attribution. See `LICENSE` for full details.
