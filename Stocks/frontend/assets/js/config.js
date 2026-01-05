@@ -1,18 +1,11 @@
-// assets/js/config.js
 
-// Put your Render backend URL here once deployed (HTTPS)
-const PROD_API_BASE = "https://stocksmart-fje8.onrender.com";
 
-function getApiBase() {
-  const isLocal =
-    location.hostname === "localhost" ||
-    location.hostname === "127.0.0.1";
+const IS_LOCAL =
+  location.hostname === "localhost" ||
+  location.hostname === "127.0.0.1";
 
-  // If you ever want to override manually:
-  // window.API_BASE = "https://...";
-  if (window.API_BASE) return window.API_BASE;
+const API = IS_LOCAL
+  ? "http://127.0.0.1:8000"
+  : "https://YOUR-RENDER-BACKEND.onrender.com"; // <-- replace
 
-  return isLocal ? "http://127.0.0.1:8000" : PROD_API_BASE;
-}
-
-const API = getApiBase();
+window.API = API;
