@@ -1,7 +1,7 @@
 // assets/js/config.js
 
 // Put your Render backend URL here once deployed (HTTPS)
-const PROD_API_BASE = "https://YOUR-BACKEND.onrender.com";
+const PROD_API_BASE = "https://stocksmart-fje8.onrender.com";
 
 function getApiBase() {
   const isLocal =
